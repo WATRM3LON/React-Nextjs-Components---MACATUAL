@@ -84,7 +84,7 @@ function StudentInfo({ switchView, setName }) {
         <button onClick={() => switchView('welcome')}>Welcome Card</button>
         <button onClick={() => switchView('counter')}>Counter</button>
       </div>
-      <form onSubmit={handleSubmit} style={{ marginBottom: '1rem' }}>
+      <form onSubmit={handleSubmit} className='studentinfo'>
         <h3>Student Info</h3>
         <input
           type="text"
