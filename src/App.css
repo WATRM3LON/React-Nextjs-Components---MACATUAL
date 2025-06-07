@@ -6,19 +6,19 @@
 }
 
 .loading{
-  background-color: #673b3c;
-  background-image: linear-gradient(to right, #673b3c , #181e41);
+  background-color: #070f71;
+  background-image: linear-gradient(to right, #070f71 , #067c97);
   height: 50px;
   width: 50px;
   margin: 0 auto;
   border-radius: 50%;
-  animation: load 3s linear forwards;
+  animation: load 5s linear forwards;
   transform-origin: center;
 }
 
 @keyframes load {
     0%{
-      transform: translate(0px,-100px);
+      transform: translate(0px,-500px);
     }
     25%{
       transform: translate(0px,10px);
@@ -27,7 +27,7 @@
       transform: translate(0px,-5px);
     }
     50%{
-      transform: translate(0px,5px);
+      transform: translate(0px,10px);
     }
     60%{
       transform: translate(0px,0px);
@@ -37,9 +37,11 @@
     }
     90%{
       transform: scale(5);
+      border-radius: 50%;
     }
     100%{
-      transform: scale(50);
+      transform: scale(40);
+      border-radius: 0%;
     }
 }
 
