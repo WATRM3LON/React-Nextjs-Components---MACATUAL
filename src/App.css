@@ -5,6 +5,44 @@
   text-align: center;
 }
 
+.loading{
+  background-color: #673b3c;
+  background-image: linear-gradient(to right, #673b3c , #181e41);
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+  border-radius: 50%;
+  animation: load 3s linear forwards;
+  transform-origin: center;
+}
+
+@keyframes load {
+    0%{
+      transform: translate(0px,-100px);
+    }
+    25%{
+      transform: translate(0px,10px);
+    }
+    40%{
+      transform: translate(0px,-5px);
+    }
+    50%{
+      transform: translate(0px,5px);
+    }
+    60%{
+      transform: translate(0px,0px);
+    }
+    70%{
+      transform: scale(2);
+    }
+    90%{
+      transform: scale(5);
+    }
+    100%{
+      transform: scale(50);
+    }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
