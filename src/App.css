@@ -7,11 +7,13 @@
 
 .loading{
   background-color: #646cffaa;
-  background-image: linear-gradient(to right, #646cffaa , #61dafbaa);
+  background: linear-gradient(135deg, #667eea, #764ba2);
   height: 50px;
   width: 50px;
   margin: 0 auto;
   border-radius: 50%;
+  position: relative;
+  z-index: -1;  
   animation: load 5s linear forwards;
   transform-origin: center;
 }
@@ -19,6 +21,9 @@
 @keyframes load {
     0%{
       transform: translate(0px,-500px);
+    }
+    5%{
+      transform: translate(center);
     }
     25%{
       transform: translate(0px,10px);
@@ -44,6 +49,31 @@
       border-radius: 0%;
     }
 }
+
+.cards{
+  background-image: linear-gradient(to right, #646cffaa , #61dafbaa);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+  color: white;
+  animation: appear 6.5s linear forwards;
+  transform-origin: center;
+  width: 500px;
+}
+
+@keyframes appear {
+  0%{
+    opacity: 0%;
+    }
+  90%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+
 
 .logo {
   height: 6em;
