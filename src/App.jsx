@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 
@@ -12,7 +10,7 @@ function Loading(){
 
 function FCard() {
   const [view, setView] = useState('info');
-  const [name, setName] = useState('Student'); // default name
+  const [name, setName] = useState('Student');
 
   const renderView = () => {
     switch (view) {
@@ -29,7 +27,7 @@ function FCard() {
 
   return (
     <div className="cards">
-      <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
+      <div className='Fcardtext'>
         {renderView()}
       </div>
     </div>
