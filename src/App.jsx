@@ -77,6 +77,7 @@ function StudentInfo({ switchView, setName }) {
     e.preventDefault();
     setName(localName)
     alert(`Student Name: ${localName}\nEmail: ${email}`);
+    switchView('welcome');
   };
 
   return (
