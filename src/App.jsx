@@ -16,7 +16,7 @@ function FCard() {
   const renderView = () => {
     switch (view) {
       case 'welcome':
-        return <WelcomeCard name={name} switchView={setView} />;
+        return <WelcomeCard name={name} switchView={setView} count={count} />;
       case 'info':
         return <StudentInfo switchView={setView} setName={setName} />;
       case 'counter':
@@ -36,7 +36,7 @@ function FCard() {
 }
 
 
-function WelcomeCard({ name, switchView}) {
+function WelcomeCard({ name, switchView, count}) {
   return (
     <>
     <div className="button1">
@@ -45,7 +45,9 @@ function WelcomeCard({ name, switchView}) {
     </div>
     <div className='welcometext'>
       <h2>Welcome, {name}!</h2>
+      <h4>Age (Counter): {count}</h4>
       <p>Glad to have you here.</p>
+      
     </div>
     </>
     
@@ -60,14 +62,13 @@ function Counter({ switchView, count, setCount }) {
         <button onClick={() => switchView('welcome')}>Welcome Card</button>
       </div>
       <div className='counter'>
-        <h3>Counter: {count}</h3>
+        <h3>Age (Counter): {count}</h3>
         <button onClick={() => setCount(count + 1)}>Increment</button>
         <button onClick={() => setCount(count - 1)}>Decrement</button>
       </div>
     </>
   );
 }
-
 
 function StudentInfo({ switchView, setName }) {
   const [email, setEmail] = useState('');
@@ -105,7 +106,6 @@ function StudentInfo({ switchView, setName }) {
   );
 }
 
-
 function App() {
   return (
     <div>
@@ -114,6 +114,5 @@ function App() {
      </div>
   );
 }
-
 
 export default App
