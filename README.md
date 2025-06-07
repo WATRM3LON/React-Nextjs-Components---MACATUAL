@@ -7,7 +7,7 @@ A simple React activity for learning. It demonstrates:
 - Event handling basics
   
 
-## Features
+Features
 
 - `WelcomeCard`: Greets the user with their name and age (counter)
 - `StudentInfo`: Form to update student name and email
