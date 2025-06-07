@@ -11,6 +11,7 @@ function Loading(){
 function FCard() {
   const [view, setView] = useState('info');
   const [name, setName] = useState('Student');
+  const [count, setCount] = useState(0);
 
   const renderView = () => {
     switch (view) {
@@ -19,7 +20,7 @@ function FCard() {
       case 'info':
         return <StudentInfo switchView={setView} setName={setName} />;
       case 'counter':
-        return <Counter switchView={setView} />;
+        return <Counter switchView={setView} count={count} setCount={setCount} />;
       default:
         return null;
     }
@@ -51,24 +52,23 @@ function WelcomeCard({ name, switchView}) {
   );
 }
 
-
-function Counter({ switchView }) {
-  const [count, setCount] = useState(0);
-
+function Counter({ switchView, count, setCount }) {
   return (
     <>
       <div className="button1">
         <button onClick={() => switchView('info')}>Student Info</button>
         <button onClick={() => switchView('welcome')}>Welcome Card</button>
       </div>
-      <div style={{ marginBottom: '1rem' }}>
+      <div className='counter'>
         <h3>Counter: {count}</h3>
         <button onClick={() => setCount(count + 1)}>Increment</button>
-        <button onClick={() => setCount(count - 1)} style={{ marginLeft: '0.5rem' }}>Decrement</button>
+        <button onClick={() => setCount(count - 1)}>Decrement</button>
       </div>
     </>
   );
 }
+
+
 function StudentInfo({ switchView, setName }) {
   const [email, setEmail] = useState('');
   const [localName, setLocalName] = useState('');
