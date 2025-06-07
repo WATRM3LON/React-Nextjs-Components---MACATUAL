@@ -3,13 +3,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+
+function Loading(){
+  return(
+    <div class="loading"></div>
+  )
+}
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
-        <div class="loading"></div>
+        <Loading />
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

@@ -6,8 +6,8 @@
 }
 
 .loading{
-  background-color: #070f71;
-  background-image: linear-gradient(to right, #070f71 , #067c97);
+  background-color: #646cffaa;
+  background-image: linear-gradient(to right, #646cffaa , #61dafbaa);
   height: 50px;
   width: 50px;
   margin: 0 auto;
