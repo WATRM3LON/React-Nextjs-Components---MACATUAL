@@ -47,7 +47,6 @@ function WelcomeCard({ name, switchView, count}) {
       <h2>Welcome, {name}!</h2>
       <h4>Age (Counter): {count}</h4>
       <p>Glad to have you here.</p>
-      
     </div>
     </>
     
