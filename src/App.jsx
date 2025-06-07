@@ -6,58 +6,45 @@ import './App.css'
 
 function Loading(){
   return(
-    <div class="loading"></div>
+    <div className="loading"></div>
   )
 }
 
-function FCard(){
-  return(
-    <div class="cards">
-      <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
-          <StudentInfo />          
-        </div>
-    </div>
-  )
-}
+function FCard() {
+  const [view, setView] = useState('info');
+  const [name, setName] = useState('Student'); // default name
 
-function Apps() {
-  const [count, setCount] = useState(0)
+  const renderView = () => {
+    switch (view) {
+      case 'welcome':
+        return <WelcomeCard name={name} switchView={setView} />;
+      case 'info':
+        return <StudentInfo switchView={setView} setName={setName} />;
+      case 'counter':
+        return <Counter switchView={setView} />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <>
-      <div>
-        <Loading />
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="cards">
+      <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
+        {renderView()}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-function WelcomeCard({ name }) {
+
+function WelcomeCard({ name, switchView}) {
   return (
     <>
     <div className="button1">
-      <button onClick={StudentInfo}>Student Info</button>
-      <button onClick={Counter}>Counter</button>
+      <button onClick={() => switchView('info')}>Student Info</button>
+      <button onClick={() => switchView('counter')}>Counter</button>
     </div>
-    <div style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem' }}>
+    <div className='welcometext'>
       <h2>Welcome, {name}!</h2>
       <p>Glad to have you here.</p>
     </div>
@@ -66,14 +53,14 @@ function WelcomeCard({ name }) {
   );
 }
 
-function Counter() {
+function Counter({ switchView }) {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div class="button1">
-      <button onClick={WelcomeCard}>Welcome Card</button>
-      <button onClick={StudentInfo}>Student Info</button>
+      <div className="button1">
+        <button onClick={() => switchView('info')}>Student Info</button>
+        <button onClick={() => switchView('welcome')}>Welcome Card</button>
       </div>
       <div style={{ marginBottom: '1rem' }}>
         <h3>Counter: {count}</h3>
@@ -83,29 +70,29 @@ function Counter() {
     </>
   );
 }
-
-function StudentInfo() {
-  const [name, setName] = useState('');
+function StudentInfo({ switchView, setName }) {
   const [email, setEmail] = useState('');
+  const [localName, setLocalName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Student Name: ${name}\nEmail: ${email}`);
+    setName(localName)
+    alert(`Student Name: ${localName}\nEmail: ${email}`);
   };
 
   return (
     <>
       <div className="button1">
-        <button onClick={WelcomeCard}>Welcome Card</button>
-        <button onClick={Counter}>Counter</button>
+        <button onClick={() => switchView('welcome')}>Welcome Card</button>
+        <button onClick={() => switchView('counter')}>Counter</button>
       </div>
       <form onSubmit={handleSubmit} style={{ marginBottom: '1rem' }}>
         <h3>Student Info</h3>
         <input
           type="text"
           placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={localName}
+          onChange={(e) => setLocalName(e.target.value)}
           style={{ display: 'block', marginBottom: '0.5rem' }}
         />
         <input
@@ -118,9 +105,9 @@ function StudentInfo() {
         <button type="submit">Submit</button>
       </form>
     </>
-    
   );
 }
+
 
 function App() {
   return (
