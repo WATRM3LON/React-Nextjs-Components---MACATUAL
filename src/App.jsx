@@ -51,6 +51,7 @@ function WelcomeCard({ name, switchView}) {
   );
 }
 
+
 function Counter({ switchView }) {
   const [count, setCount] = useState(0);
 
@@ -91,14 +92,12 @@ function StudentInfo({ switchView, setName }) {
           placeholder="Name"
           value={localName}
           onChange={(e) => setLocalName(e.target.value)}
-          style={{ display: 'block', marginBottom: '0.5rem' }}
         />
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          style={{ display: 'block', marginBottom: '0.5rem' }}
         />
         <button type="submit">Submit</button>
       </form>

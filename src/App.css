@@ -100,9 +100,17 @@
 }
 
 .welcometext{
+  background: linear-gradient(to right, #5a62ffcc, #4fd8ffff);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  margin-bottom: -20px;
+  animation: appear1 1s linear forwards;;
   border: 1px solid #ccc;
   padding: 1rem;
-  margin-bottom: 1rem;
 }
 
 .studentinfo{
@@ -130,6 +138,7 @@
   font-family: 'Montserrat', sans-serif;
   margin: 0 auto;
   margin-top: 15px;
+  display: block;
 }
 
 .studentinfo button{
